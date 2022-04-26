@@ -35,10 +35,10 @@ class Event
     items = Array.new(0)
     @food_trucks.each do |truck|
       truck.inventory.each do |item|
-        binding.pry
         items << item[0] if !items.include?(item[0])
       end
     end
-    return items.sort
+    binding.pry
+    return items
   end
 end

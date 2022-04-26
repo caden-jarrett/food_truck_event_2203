@@ -5,7 +5,7 @@ class FoodTruck < Item
   attr_reader :name, :inventory
   def initialize(name)
     @name = name
-    @inventory = {}
+    @inventory = Hash.new(0)
   end
 
   def check_stock(item)
@@ -18,9 +18,11 @@ class FoodTruck < Item
   end
 
   def stock(item, stock_quantity)
-    quantity = item.quantity
-    quantity += stock_quantity
-    @inventory[item] = quantity
+    @inventory[item] += stock_quantity
+    # binding.pry
+    # quantity = item.quantity
+    # quantity += stock_quantity
+    # @inventory[item] = quantity
     # binding.pry
     # USED ++ BUT RUBY DIDNT LIKE ADDING TWO INTEGERS TOGETHER AND NOT REPLACING QUANTITY, I HAVE BEEN STUCK ON THIS SINCE 9:30, += is the only way to do this and it is saying that it is a undefined method
   end
